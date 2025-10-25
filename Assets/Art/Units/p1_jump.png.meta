@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 918f43e750392b74497827ef7b179c74
+guid: bb106195d95b79d4f84bf3f653ae34ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6806624230246934245
-    second: spaghetti_0
+      213: -2254093783968861960
+    second: p1_jump_0
+  - first:
+      213: -4197078325278370860
+    second: p1_jump_1
+  - first:
+      213: 4962081942046971728
+    second: p1_jump_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spaghetti_0
+      name: p1_jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -108,15 +114,59 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b19909c53530a81a0800000000000000
-      internalID: -6806624230246934245
+      spriteID: 8f0be1c65a9d7b0e0800000000000000
+      internalID: -2254093783968861960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_jump_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d39a4f008bf0c5c0800000000000000
+      internalID: -4197078325278370860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: p1_jump_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 057171e6c3bdcd440800000000000000
+      internalID: 4962081942046971728
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5d5f8666b6484914fae4f942c91d5891
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +183,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      spaghetti_0: -6806624230246934245
+      p1_jump_0: -2254093783968861960
+      p1_jump_1: -4197078325278370860
+      p1_jump_2: 4962081942046971728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
