@@ -363,6 +363,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 17840029936879671, guid: b0233a47a81c8e34a8ca409cf01cfd08,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 664455047924274034, guid: b0233a47a81c8e34a8ca409cf01cfd08,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -508,6 +513,7 @@ MonoBehaviour:
   bulletSpawnOffset: 1
   bulleSpeed: 1
   bulletLifeTime: 3
+  maxHp: 1
 --- !u!4 &48569675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8361211798042340025, guid: d83b25838327297489848d3bb4e5915c,
@@ -2435,6 +2441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player2Controller
   softRespawnDelay: 0.5
   softRespawnDuration: 0.5
+  attackCooldown: 1
 --- !u!1 &348853863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,6 +4269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 17840029936879671, guid: b0233a47a81c8e34a8ca409cf01cfd08,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 664455047924274034, guid: b0233a47a81c8e34a8ca409cf01cfd08,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4407,6 +4419,7 @@ MonoBehaviour:
   bulletSpawnOffset: 1
   bulleSpeed: 1
   bulletLifeTime: 3
+  maxHp: 1
 --- !u!1 &1392290741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,6 +5205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 17840029936879671, guid: b0233a47a81c8e34a8ca409cf01cfd08,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 664455047924274034, guid: b0233a47a81c8e34a8ca409cf01cfd08,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5332,6 +5350,7 @@ MonoBehaviour:
   bulletSpawnOffset: 1
   bulleSpeed: 1
   bulletLifeTime: 3
+  maxHp: 1
 --- !u!1 &1683175660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,6 +5408,7 @@ MonoBehaviour:
   bulletSpawnOffset: 1
   bulleSpeed: 1
   bulletLifeTime: 3
+  maxHp: 1
 --- !u!1 &1761603612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,6 +5754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 17840029936879671, guid: b0233a47a81c8e34a8ca409cf01cfd08,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 664455047924274034, guid: b0233a47a81c8e34a8ca409cf01cfd08,
         type: 3}
@@ -6566,6 +6591,19 @@ PrefabInstance:
     - target: {fileID: 1021553409, guid: 4fb49a1922deb8249bfdbba50d98dbf1, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882247456, guid: 4fb49a1922deb8249bfdbba50d98dbf1, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8706223506863216679, guid: 6b28c7976a2b9f445b48325816ab870e,
+        type: 3}
+    - target: {fileID: 1882247456, guid: 4fb49a1922deb8249bfdbba50d98dbf1, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 1372819450}
+    - target: {fileID: 1882247456, guid: 4fb49a1922deb8249bfdbba50d98dbf1, type: 3}
+      propertyPath: shootInterval
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 41342835647678606, guid: 4fb49a1922deb8249bfdbba50d98dbf1,
         type: 3}

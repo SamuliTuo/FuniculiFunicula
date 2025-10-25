@@ -12,6 +12,10 @@ public class Player2Controller : MonoBehaviour {
     public float softRespawnDelay = 0.5f;
     public float softRespawnDuration = 0.5f;
     public InputMaster controls;
+    public float attackCooldown = 1.0f;
+
+    bool attacking = false;
+    bool attackOnCooldown = false;
 
     // Other components
     private CharacterController2D character;
@@ -39,6 +43,7 @@ public class Player2Controller : MonoBehaviour {
         controls.Player2.Dash.started += Dash;
         controls.Player2.Interact.started += Interact;
         controls.Player2.AttackA.started += Attack;
+        controls.Player2.AttackA.canceled += Attack;
     }
 
     /// <summary>
@@ -75,10 +80,39 @@ public class Player2Controller : MonoBehaviour {
         }
     }
 
+    
     private void Attack(InputAction.CallbackContext context) {
-        if (interact && interact.PickedUpObject) {
-            interact.Throw();
+        if (!character.Immobile)
+        {
+            StartCoroutine(AttackRoutine());
         }
+    }
+    void AttackCancelled(InputAction.CallbackContext context)
+    {
+        attacking = false;
+    }
+    IEnumerator AttackRoutine()
+    {
+        while (attacking)
+        {
+            if (!attackOnCooldown)
+            {
+                SwordAttack();
+            }
+            yield return null;
+        }
+    }
+    void SwordAttack()
+    {
+        print("swof");
+        attackOnCooldown = true;
+        StartCoroutine(AttackCooldown());
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        attackOnCooldown = false;
     }
 
     /// <summary>
