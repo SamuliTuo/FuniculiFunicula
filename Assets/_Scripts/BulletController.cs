@@ -78,6 +78,7 @@ public class BulletController : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyController>().GotHit(damage);
+            Destroy(this.gameObject);
         }
     }
 
