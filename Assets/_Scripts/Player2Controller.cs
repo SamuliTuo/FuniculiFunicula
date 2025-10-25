@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Deals with inputs for player characters
 /// </summary>
-public class PlayerController : MonoBehaviour {
+public class Player2Controller : MonoBehaviour {
 
     public float softRespawnDelay = 0.5f;
     public float softRespawnDuration = 0.5f;
@@ -32,13 +32,13 @@ public class PlayerController : MonoBehaviour {
             Debug.LogError("The scene is missing a camera controller! The player script needs it to work properly!");
         }
         controls = new InputMaster();
-        controls.Player1.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        controls.Player1.Movement.canceled += ctx => Move(Vector2.zero);
-        controls.Player1.Jump.started += Jump;
-        controls.Player1.Jump.canceled += EndJump;
-        controls.Player1.Dash.started += Dash;
-        controls.Player1.Interact.started += Interact;
-        controls.Player1.AttackA.started += Attack;
+        controls.Player2.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        controls.Player2.Movement.canceled += ctx => Move(Vector2.zero);
+        controls.Player2.Jump.started += Jump;
+        controls.Player2.Jump.canceled += EndJump;
+        controls.Player2.Dash.started += Dash;
+        controls.Player2.Interact.started += Interact;
+        controls.Player2.AttackA.started += Attack;
     }
 
     /// <summary>
@@ -110,13 +110,13 @@ public class PlayerController : MonoBehaviour {
     /// This function is called when the object becomes enabled and active.
     /// </summary>
     void OnEnable() {
-        controls.Player1.Enable();
+        controls.Player2.Enable();
     }
 
     /// <summary>
     /// This function is called when the behaviour becomes disabled or inactive.
     /// </summary>
     void OnDisable() {
-        controls.Player1.Disable();
+        controls.Player2.Disable();
     }
 }
