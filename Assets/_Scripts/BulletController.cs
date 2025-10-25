@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     public float knockbackForce = 1.0f;
     public float stunDuration = 1.0f;
     public float invulnerableDuration = 1.0f;
+    public float damage = 1.0f;
     public bool airStagger = true;
 
     private Vector3 dir;
@@ -74,7 +75,10 @@ public class BulletController : MonoBehaviour
 
     void PlayerBulletCollisions(Collider2D collision)
     {
-
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyController>().GotHit(damage);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

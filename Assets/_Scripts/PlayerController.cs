@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour {
     public float softRespawnDelay = 0.5f;
     public float softRespawnDuration = 0.5f;
     public InputMaster controls;
+    public SpriteRenderer renderer;
+
+    public GameObject bullet;
+    public float shootInterval = 3.0f;
+    private bool shootOnCooldown = false;
+    private bool shooting = false;
+    private bool dead = false;
 
     // Other components
     private CharacterController2D character;
@@ -38,7 +45,8 @@ public class PlayerController : MonoBehaviour {
         controls.Player1.Jump.canceled += EndJump;
         controls.Player1.Dash.started += Dash;
         controls.Player1.Interact.started += Interact;
-        controls.Player1.AttackA.started += Attack;
+        controls.Player1.AttackA.performed += Attack;
+        controls.Player1.AttackA.canceled += AttackCanceled;
     }
 
     /// <summary>
@@ -75,16 +83,47 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void Attack(InputAction.CallbackContext context) {
-        if (interact && interact.PickedUpObject) {
-            interact.Throw();
+    public void Attack(InputAction.CallbackContext context) {
+        shooting = true;
+        if (!character.Immobile)
+        {
+            StartCoroutine(ShootRoutine());
         }
+    }
+    void AttackCanceled(InputAction.CallbackContext context)
+    {
+        shooting = false;
+    }
+    IEnumerator ShootRoutine()
+    {
+        while (shooting)
+        {
+            if (!shootOnCooldown)
+            {
+                Shoot();
+            }
+            yield return null;
+        }
+    }
+    void Shoot()
+    {
+        Vector3 shootDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        var clone = Instantiate(bullet, transform.position + shootDir, Quaternion.identity).GetComponent<BulletController>();
+        clone.Init(shootDir, false);
+        shootOnCooldown = true;
+        StartCoroutine(ShootCooldown());
+    }
+    IEnumerator ShootCooldown()
+    {
+        yield return new WaitForSeconds(shootInterval);
+        shootOnCooldown = false;
     }
 
     /// <summary>
     /// Respawns the player at the last soft checkpoint while keeping their current stats
     /// </summary>
     public void SoftRespawn() {
+        renderer.flipY = true;
         character.Immobile = true;
         Invoke("StartSoftRespawn", softRespawnDelay);
     }
@@ -93,6 +132,7 @@ public class PlayerController : MonoBehaviour {
     /// Starts the soft respwan after a delay and fades out the screen
     /// </summary>
     private void StartSoftRespawn() {
+        StopAllCoroutines();
         cameraController.FadeOut();
         Invoke("EndSoftRespawn", softRespawnDuration);
     }
@@ -101,9 +141,11 @@ public class PlayerController : MonoBehaviour {
     /// Ends the soft respwan after the duration ended, repositions the player and fades in the screen
     /// </summary>
     private void EndSoftRespawn() {
+        renderer.flipY = false;
         checkpoint.ReturnToSoftCheckpoint();
-        cameraController.FadeIn();
+        cameraController.FadeIn();  
         character.Immobile = false;
+        shootOnCooldown = false;
     }
 
     /// <summary>
