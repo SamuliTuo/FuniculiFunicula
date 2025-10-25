@@ -22,17 +22,17 @@ public class CameraController : MonoBehaviour {
     /// Fades the screen from black to visible
     /// </summary>
     public void FadeIn() {
-        animator.SetBool(ANIMATION_BLACK, false);
-        float speed = fadeInDuration > 0f ? 1f / fadeInDuration : 1f;
-        animator.SetFloat(ANIMATION_IN_SPEED, speed);
+        //animator.SetBool(ANIMATION_BLACK, false);
+        //float speed = fadeInDuration > 0f ? 1f / fadeInDuration : 1f;
+        //animator.SetFloat(ANIMATION_IN_SPEED, speed);
     }
 
     /// <summary>
     /// Fades the screen from visible to black
     /// </summary>
     public void FadeOut() {
-        animator.SetBool(ANIMATION_BLACK, true);
-        float speed = fadeOutDuration > 0f ? 1f / fadeOutDuration : 1f;
-        animator.SetFloat(ANIMATION_OUT_SPEED, speed);
+        //animator.SetBool(ANIMATION_BLACK, true);
+        //float speed = fadeOutDuration > 0f ? 1f / fadeOutDuration : 1f;
+        //animator.SetFloat(ANIMATION_OUT_SPEED, speed);
     }
 }

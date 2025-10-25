@@ -14,7 +14,7 @@ public class ChekpointArea : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        pConfig = GameObject.FindObjectOfType<PhysicsConfig>();
+        pConfig = FindFirstObjectByType<PhysicsConfig>();
         if (!pConfig) {
             pConfig = (PhysicsConfig) new GameObject().AddComponent(typeof(PhysicsConfig));
             pConfig.gameObject.name = "Physics Config";

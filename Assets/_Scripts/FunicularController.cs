@@ -1,26 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FunicularController : MonoBehaviour
 {
-    public List<Transform> nodes = new List<Transform>();
-    public Vector3 offsetFromNodes;
-    public float travelSpeed = 0.1f;
+    public Image hpBar;
+    public List<Transform> funicularCars = new List<Transform>();
+    public float maxHp;
+
+
+    private float hp;
 
     private void Start()
     {
-        StartCoroutine(MoveFunicular());
+        hp = maxHp;
     }
 
-    IEnumerator MoveFunicular()
+    public void GotHit(float damage)
     {
-        float t = 0;
-        while (t <= 1)
+        hp -= damage;
+        SetHP();
+        if (hp < 0)
         {
-            transform.position = Vector3.Lerp(nodes[0].position, nodes[1].position, t) + offsetFromNodes;
-            t += Time.deltaTime * travelSpeed;
-            yield return null;
+            GameManager.Instance.GameOver();
         }
+        
+    }
+
+    void SetHP()
+    {
+        hpBar.fillAmount = Mathf.Max(0, hp) / maxHp;
     }
 }

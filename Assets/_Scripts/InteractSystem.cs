@@ -42,7 +42,7 @@ public class InteractSystem : MonoBehaviour {
     void Start() {
         inputIcon.enabled = false;
         character = GetComponent<CharacterController2D>();
-        pConfig = GameObject.FindObjectOfType<PhysicsConfig>();
+        pConfig = FindFirstObjectByType<PhysicsConfig>();
         if (!pConfig) {
             pConfig = (PhysicsConfig) new GameObject().AddComponent(typeof(PhysicsConfig));
             pConfig.gameObject.name = "Physics Config";
