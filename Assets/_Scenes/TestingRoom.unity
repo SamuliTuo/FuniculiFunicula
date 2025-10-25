@@ -514,6 +514,7 @@ MonoBehaviour:
   bulleSpeed: 1
   bulletLifeTime: 3
   maxHp: 1
+  maxShootRange: 50
 --- !u!4 &48569675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8361211798042340025, guid: d83b25838327297489848d3bb4e5915c,
@@ -4429,6 +4430,7 @@ MonoBehaviour:
   bulleSpeed: 1
   bulletLifeTime: 3
   maxHp: 1
+  maxShootRange: 50
 --- !u!1 &1392290741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5438,6 +5440,7 @@ MonoBehaviour:
   bulleSpeed: 1
   bulletLifeTime: 3
   maxHp: 1
+  maxShootRange: 50
 --- !u!1 &1683175660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,12 +5491,12 @@ PrefabInstance:
     - target: {fileID: 2386069649446541411, guid: 0b1c4f1c3c1789b46a98990c1472bd34,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.650765
+      value: -12.12
       objectReference: {fileID: 0}
     - target: {fileID: 2386069649446541411, guid: 0b1c4f1c3c1789b46a98990c1472bd34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 61.08626
+      value: 62.18
       objectReference: {fileID: 0}
     - target: {fileID: 2386069649446541411, guid: 0b1c4f1c3c1789b46a98990c1472bd34,
         type: 3}
@@ -5540,6 +5543,16 @@ PrefabInstance:
       propertyPath: crumbleTime
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5200774007169632536, guid: 0b1c4f1c3c1789b46a98990c1472bd34,
+        type: 3}
+      propertyPath: pattern
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200774007169632536, guid: 0b1c4f1c3c1789b46a98990c1472bd34,
+        type: 3}
+      propertyPath: pointCount
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5569,6 +5582,7 @@ MonoBehaviour:
   bulleSpeed: 1
   bulletLifeTime: 3
   maxHp: 1
+  maxShootRange: 50
 --- !u!1 &1761603612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6543,7 +6557,7 @@ PrefabInstance:
     - target: {fileID: 6849151202310540923, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.029694
+      value: -21.039225
       objectReference: {fileID: 0}
     - target: {fileID: 6849151202310540923, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
@@ -6563,7 +6577,7 @@ PrefabInstance:
     - target: {fileID: 6849151202356881847, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.029694
+      value: -21.039225
       objectReference: {fileID: 0}
     - target: {fileID: 6849151202356881847, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
