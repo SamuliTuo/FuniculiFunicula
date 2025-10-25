@@ -9,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public class CheckpointSystem : MonoBehaviour {
 
+    public Transform checkpointTransform;
     public Vector3 softCheckpoint;
     public Vector3 hardCheckpoint;
 
@@ -16,14 +17,14 @@ public class CheckpointSystem : MonoBehaviour {
     /// Returns to the last soft checkpoint touched
     /// </summary>
     public void ReturnToSoftCheckpoint() {
-        transform.position = softCheckpoint;
+        transform.position = checkpointTransform.position;// softCheckpoint;
     }
 
     /// <summary>
     /// Returns to the last hard checkpoint touched
     /// </summary>
     public void ReturnToHardCheckpoint() {
-        transform.position = softCheckpoint;
+        transform.position = checkpointTransform.position;// softCheckpoint;
     }
 
 }

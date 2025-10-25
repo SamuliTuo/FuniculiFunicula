@@ -37,7 +37,7 @@ public class PlatformController : MonoBehaviour {
     void Start() {
         animator = GetComponent<Animator>();
         myCollider = GetComponent<Collider2D>();
-        pConfig = GameObject.FindObjectOfType<PhysicsConfig>();
+        pConfig = FindFirstObjectByType<PhysicsConfig>();
         if (!pConfig) {
             pConfig = (PhysicsConfig) new GameObject().AddComponent(typeof(PhysicsConfig));
             pConfig.gameObject.name = "Physics Config";

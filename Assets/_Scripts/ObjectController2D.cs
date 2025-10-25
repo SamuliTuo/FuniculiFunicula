@@ -40,7 +40,7 @@ public class ObjectController2D : MonoBehaviour {
     public virtual void Start() {
         myCollider = GetComponent<BoxCollider2D>();
         CalculateSpacing();
-        pConfig = GameObject.FindObjectOfType<PhysicsConfig>();
+        pConfig = FindFirstObjectByType<PhysicsConfig>();
         if (!pConfig) {
             pConfig = (PhysicsConfig) new GameObject().AddComponent(typeof(PhysicsConfig));
             pConfig.gameObject.name = "Physics Config";

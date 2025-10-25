@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
         character = GetComponent<CharacterController2D>();
         checkpoint = GetComponent<CheckpointSystem>();
         interact = GetComponent<InteractSystem>();
-        cameraController = GameObject.FindObjectOfType<CameraController>();
+        cameraController = FindFirstObjectByType<CameraController>();
         if (!cameraController) {
             Debug.LogError("The scene is missing a camera controller! The player script needs it to work properly!");
         }

@@ -23,7 +23,7 @@ public class HazardController : MonoBehaviour {
     /// any of the Update methods is called the first time.
     /// </summary>
     void Start() {
-        pConfig = GameObject.FindObjectOfType<PhysicsConfig>();
+        pConfig = FindFirstObjectByType<PhysicsConfig>();
         if (!pConfig) {
             pConfig = (PhysicsConfig) new GameObject().AddComponent(typeof(PhysicsConfig));
             pConfig.gameObject.name = "Physics Config";
@@ -55,6 +55,11 @@ public class HazardController : MonoBehaviour {
             PlayerController player = other.GetComponent<PlayerController>();
             if (softRespawn && player) {
                 player.SoftRespawn();
+            }
+            Player2Controller player2 = other.GetComponent<Player2Controller>();
+            if (softRespawn && player2)
+            {
+                player2.SoftRespawn();
             }
         }
     }
