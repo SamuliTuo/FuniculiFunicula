@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 3254934662705128177}
   - component: {fileID: 5555023300363724126}
   - component: {fileID: 7247220377349715035}
+  - component: {fileID: 4639660980461823634}
   m_Layer: 11
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,6 +221,25 @@ MonoBehaviour:
   minWallAngle: 80
   speed: {x: 0, y: 0}
   externalForce: {x: 0, y: 0}
+--- !u!114 &4639660980461823634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17840029936879671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb27a440f264174b8d8593148ed12ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  attackInterval: 4
+  bullet: {fileID: 8706223506863216679, guid: 1cebea855007afc439a5058072a1d668, type: 3}
+  bulletSpawnOffset: 1
+  bulleSpeed: 1
+  bulletLifeTime: 3
+  maxHp: 3
+  maxShootRange: 50
 --- !u!1 &4833749605407166501
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 4833749605407166501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0.488, z: 0}
   m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -299,16 +319,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5235999154831892412, guid: 5a5c1972d4c3777468821161d9eea884,
+  m_Sprite: {fileID: -5363761963198700476, guid: 21ab336484d76cc4ba3a7f209fb13f57,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.63, y: 0.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5634556231466477645

@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
         Vector3 shootDir = GameManager.Instance.FunicularController.funicularCars[0].transform.position - transform.position;
         if (shootDir.magnitude < maxShootRange)
         {
+            shootDir = shootDir.normalized;
             var clone = Instantiate(bullet, transform.position + shootDir * bulletSpawnOffset, Quaternion.identity).GetComponent<BulletController>();
             clone.Init(shootDir, true);
         }
