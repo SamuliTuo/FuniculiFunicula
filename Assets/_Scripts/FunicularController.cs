@@ -22,6 +22,7 @@ public class FunicularController : MonoBehaviour
     {
         hp -= damage;
         SetHP();
+        GameManager.Instance.AudioManager.PlayClip("funiculi_auts");
         if (hp < 0)
         {
             GameManager.Instance.GameOver();

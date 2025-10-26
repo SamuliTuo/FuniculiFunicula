@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Dictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
+    public List<SoundClip> SoundClips;
+    [Space(20)]
     public List<AudioSource> freeSources = new List<AudioSource>();
 
     [SerializeField] private List<AudioSource> audioSourcesInUse = new List<AudioSource>();
@@ -13,14 +14,21 @@ public class AudioManager : MonoBehaviour
     public void PlayClip(string clipName)
     {
         var source = GetFreeSource();
-        AudioClip clip;
-        clips.TryGetValue(clipName, out clip);
-        if (clip == null)
+        SoundClip data = null;
+        for (int i = 0; i < SoundClips.Count; i++)
         {
-            print("Couldn't find clip: " + clipName);
+            if (SoundClips[i].clipName == clipName)
+            {
+                data = SoundClips[i];
+                break;
+            }
+        }
+        if (data == null)
+        {
+            print("Couldn't find audiodata for : " + clipName);
             return;
         }
-        source.clip = clip;
+        source.clip = data.clip[Random.Range(0, data.clip.Count)];
         source.Play();
         ReturnSourceToPoolAfterDelay(10, source);
     }
@@ -46,5 +54,19 @@ public class AudioManager : MonoBehaviour
     {
         audioSourcesInUse.Remove(source);
         freeSources.Add(source);
+    }
+}
+
+[System.Serializable]
+public class SoundClip
+{
+    public string clipName;
+    public List<AudioClip> clip;
+    public bool randomize;
+    public SoundClip(string clipName, List<AudioClip> clip, bool randomize)
+    {
+        this.clipName = clipName;
+        this.clip = clip;
+        this.randomize = randomize;
     }
 }

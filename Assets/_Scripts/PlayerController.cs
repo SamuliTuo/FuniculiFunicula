@@ -64,9 +64,9 @@ public class PlayerController : MonoBehaviour {
 
     private void Jump(InputAction.CallbackContext context) {
         if (axis.y < 0) {
-            character.JumpDown();
+            character.JumpDown("player1_jump");
         } else {
-            character.Jump();
+            character.Jump("player1_jump");
         }
     }
 
@@ -80,13 +80,14 @@ public class PlayerController : MonoBehaviour {
 
     private void Interact(InputAction.CallbackContext context) {
         if (interact) {
-            interact.Interact();
+            interact.Interact("player1_liftObj");
         }
     }
 
     public void Attack(InputAction.CallbackContext context) {
         if (interact && interact.PickedUpObject)
         {
+            GameManager.Instance.AudioManager.PlayClip("player1_throw");
             interact.Throw();
         }
         else
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour {
         var clone = Instantiate(bullet, (transform.position + Vector3.up * 0.5f) + shootDir * bulletOffsetFromPlayerWhenShooting, Quaternion.identity).GetComponent<BulletController>();
         clone.Init(shootDir, false);
         shootOnCooldown = true;
+        GameManager.Instance.AudioManager.PlayClip("player1_attack");
         StartCoroutine(ShootCooldown());
     }
     IEnumerator ShootCooldown()
@@ -145,6 +147,7 @@ public class PlayerController : MonoBehaviour {
     private void StartSoftRespawn() {
         StopAllCoroutines();
         cameraController.FadeOut();
+        GameManager.Instance.AudioManager.PlayClip("player1_ded");
         Invoke("EndSoftRespawn", softRespawnDuration);
     }
 
