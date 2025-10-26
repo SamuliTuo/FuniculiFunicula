@@ -362,7 +362,6 @@ public class CharacterController2D : ObjectController2D {
                 }
                 float height = cData.maxJumpHeight;
                 if (OnLadder) {
-                    print("doing ladder jump");
                     Vector2 origin = myCollider.bounds.center + Vector3.up * myCollider.bounds.extents.y;
                     Collider2D hit = Physics2D.OverlapCircle(origin, 0, collisionMask);
                     if (hit) {
@@ -382,6 +381,8 @@ public class CharacterController2D : ObjectController2D {
                 speed.y = Mathf.Sqrt(-2 * pConfig.gravity * height);
                 externalForce.y = 0;
                 animator.SetTrigger(ANIMATION_JUMP);
+
+                GameManager.Instance.ParticleSpawner.SpawnJumpCloud(transform.position);
                 if (cData.jumpCancelStagger) {
                     airStaggerTime = 0;
                 }
@@ -489,6 +490,8 @@ public class CharacterController2D : ObjectController2D {
     /// The character will briefly ignore platforms so it can jump down through them
     /// </summary>
     private void IgnorePlatforms() {
+
+        GameManager.Instance.ParticleSpawner.SpawnJumpCloud(transform.position);
         ignorePlatformsTime = owPlatformDelay;
     }
 
