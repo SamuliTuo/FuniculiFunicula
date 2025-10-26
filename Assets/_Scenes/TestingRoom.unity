@@ -22668,6 +22668,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f4223faacbb6fde468b54563af861b11, type: 3}
     - {fileID: 8300000, guid: 6316e29ac072c5d41b5bcbf51318e3ee, type: 3}
     randomize: 1
+  - clipName: player1_throw
+    clip:
+    - {fileID: 8300000, guid: bac572ede667a384f8bbb15425bb92ad, type: 3}
+    randomize: 0
   - clipName: player2_attack
     clip:
     - {fileID: 8300000, guid: 5d7719cd0925a144d8698695bc57be78, type: 3}
@@ -22695,9 +22699,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2f77a73474863544f82e2f18552f990c, type: 3}
     - {fileID: 8300000, guid: 205f56e40f10f674d81561e9f099f5fc, type: 3}
     randomize: 1
-  - clipName: enemy_shoot
-    clip: []
-    randomize: 0
+  - clipName: player2_throw
+    clip:
+    - {fileID: 8300000, guid: 978b23eedde4fa6498490032b9008f95, type: 3}
+    randomize: 1
   freeSources:
   - {fileID: 1930597064}
   - {fileID: 956136942}
