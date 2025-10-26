@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
         {
             if (SoundClips[i].clipName == clipName)
             {
-                clip = SoundClips[i].clip;
+                //clip = SoundClips[i].clip;
                 break;
             }
         }
@@ -61,8 +61,8 @@ public class AudioManager : MonoBehaviour
 public class SoundClip
 {
     public string clipName;
-    public AudioClip clip;
-    public SoundClip(string clipName, AudioClip clip)
+    public List<AudioClip> clip;
+    public SoundClip(string clipName, List<AudioClip> clip)
     {
         this.clipName = clipName;
         this.clip = clip;
