@@ -63,9 +63,9 @@ public class Player2Controller : MonoBehaviour {
 
     private void Jump(InputAction.CallbackContext context) {
         if (axis.y < 0) {
-            character.JumpDown();
+            character.JumpDown("player2_jump");
         } else {
-            character.Jump();
+            character.Jump("player2_jump");
         }
     }
 
@@ -79,7 +79,7 @@ public class Player2Controller : MonoBehaviour {
 
     private void Interact(InputAction.CallbackContext context) {
         if (interact) {
-            interact.Interact();
+            interact.Interact("player2_liftObj");
         }
     }
 
@@ -115,8 +115,7 @@ public class Player2Controller : MonoBehaviour {
     }
     void SwordAttack()
     {
-
-        //GameManager.Instance.ParticleSpawner.SpawnSlash(transform.position + Vector3.up, axis);
+        GameManager.Instance.AudioManager.PlayClip("player2_attack");
         attackManager.StartAttack(axis, character.FacingRight);
         attackOnCooldown = true;
         StartCoroutine(AttackCooldown());
@@ -142,6 +141,7 @@ public class Player2Controller : MonoBehaviour {
     /// </summary>
     private void StartSoftRespawn() {
         cameraController.FadeOut();
+        GameManager.Instance.AudioManager.PlayClip("player2_ded");
         Invoke("EndSoftRespawn", softRespawnDuration);
     }
 

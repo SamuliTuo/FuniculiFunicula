@@ -126,7 +126,6 @@ public class PlatformController : MonoBehaviour {
     /// </summary>
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
-        print("atach " + other.name);
         AttachObject(other);
     }
 
@@ -151,7 +150,7 @@ public class PlatformController : MonoBehaviour {
         if (obj && !objs.Contains(obj)) {
             // doesn't attach to the obj if it's a 1 way platform and the obj is below it
             if (pConfig.owPlatformMask == (pConfig.owPlatformMask | (1 << gameObject.layer)) &&
-                (obj.transform.position.y < transform.position.y || obj.TotalSpeed.y > 0)) {
+                obj.TotalSpeed.y > 0) {
                 return;
             } else {
                 objs.Add(obj);

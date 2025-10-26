@@ -83,8 +83,9 @@ public class InteractSystem : MonoBehaviour {
     /// <summary>
     /// If there's an interactable object within the range, interacts with the closest one
     /// </summary>
-    public void Interact() {
+    public void Interact(string audioClipName) {
         if (closestObject) {
+            GameManager.Instance.AudioManager.PlayClip(audioClipName);
             closestObject.Interact(this);
             closestObject = null;
         }

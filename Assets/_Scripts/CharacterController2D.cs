@@ -352,7 +352,7 @@ public class CharacterController2D : ObjectController2D {
     /// <summary>
     ///  Makes the character jump if possible
     /// </summary>
-    public void Jump() {
+    public void Jump(string soundClipName = "") {
         if (CanMove() && (!Dashing || cData.canJumpDuringDash)) {
             if (collisions.onGround || OnLadder || extraJumps > 0 || (cData.canWallJump && collisions.hHit)) {
                 // air jump
@@ -362,7 +362,6 @@ public class CharacterController2D : ObjectController2D {
                 }
                 float height = cData.maxJumpHeight;
                 if (OnLadder) {
-                    print("doing ladder jump");
                     Vector2 origin = myCollider.bounds.center + Vector3.up * myCollider.bounds.extents.y;
                     Collider2D hit = Physics2D.OverlapCircle(origin, 0, collisionMask);
                     if (hit) {
@@ -382,6 +381,8 @@ public class CharacterController2D : ObjectController2D {
                 speed.y = Mathf.Sqrt(-2 * pConfig.gravity * height);
                 externalForce.y = 0;
                 animator.SetTrigger(ANIMATION_JUMP);
+
+                GameManager.Instance.ParticleSpawner.SpawnJumpCloud(transform.position);
                 if (cData.jumpCancelStagger) {
                     airStaggerTime = 0;
                 }
@@ -396,9 +397,10 @@ public class CharacterController2D : ObjectController2D {
                     speed.x = cData.maxSpeed * collisions.groundDirection;
                 }
                 ignorePlatformsTime = 0;
-                if (soundManager) {
-                    soundManager.PlayJumpSound();
-                }
+                GameManager.Instance.AudioManager.PlayClip(soundClipName);
+                //if (soundManager) {
+                //    soundManager.PlayJumpSound();
+                //}
             }
         }
     }
@@ -473,13 +475,13 @@ public class CharacterController2D : ObjectController2D {
     /// If the character is standing on a platform, will ignore platforms briefly,
     /// otherwise it will just jump
     /// </summary>
-    public void JumpDown() {
+    public void JumpDown(string soundClipName) {
         if (CanMove()) {
             if (collisions.vHit && pConfig.owPlatformMask ==
                 (pConfig.owPlatformMask | (1 << collisions.vHit.collider.gameObject.layer))) {
-                IgnorePlatforms();
+                IgnorePlatforms(soundClipName);
             } else {
-                Jump();
+                Jump(soundClipName);
             }
         }
     }
@@ -487,7 +489,9 @@ public class CharacterController2D : ObjectController2D {
     /// <summary>
     /// The character will briefly ignore platforms so it can jump down through them
     /// </summary>
-    private void IgnorePlatforms() {
+    private void IgnorePlatforms(string soundClipName = "") {
+        GameManager.Instance.AudioManager.PlayClip(soundClipName);
+        GameManager.Instance.ParticleSpawner.SpawnJumpCloud(transform.position);
         ignorePlatformsTime = owPlatformDelay;
     }
 
