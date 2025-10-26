@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Funicula
   - Enemy
+  - Box
   layers:
   - Default
   - TransparentFX

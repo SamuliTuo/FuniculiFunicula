@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public ParticleSpawner ParticleSpawner { get; private set; }
     public FunicularController FunicularController { get; private set; }
 
     private void Awake()
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
+        ParticleSpawner = GetComponentInChildren<ParticleSpawner>();
         FunicularController = FindFirstObjectByType<FunicularController>();
     }
 

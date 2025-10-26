@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1303926481
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
@@ -174,11 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eed887ef5b65464eb4b9d7a65da98aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  lifeTime: 3
+  lifeTime: 0.35
   flySpeed: 25
   knockbackForce: 15
   stunDuration: 1
   invulnerableDuration: 1
+  damage: 1
   airStagger: 0
 --- !u!50 &452856127687973969
 Rigidbody2D:

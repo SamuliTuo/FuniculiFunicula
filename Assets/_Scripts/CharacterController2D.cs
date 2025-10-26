@@ -282,6 +282,10 @@ public class CharacterController2D : ObjectController2D {
             FacingRight = TotalSpeed.x > 0; 
             if (visual) visual.flipX = !FacingRight;
         }
+        if (animator.runtimeAnimatorController == null)
+        {
+            return;
+        }
         animator.SetFloat(ANIMATION_H_SPEED, speed.x);
         animator.SetFloat(ANIMATION_V_SPEED, TotalSpeed.y);
         animator.SetFloat(ANIMATION_EX_SPEED, externalForce.x);
@@ -350,7 +354,7 @@ public class CharacterController2D : ObjectController2D {
     /// </summary>
     public void Jump() {
         if (CanMove() && (!Dashing || cData.canJumpDuringDash)) {
-            if (collisions.onGround || extraJumps > 0 || (cData.canWallJump && collisions.hHit)) {
+            if (collisions.onGround || OnLadder || extraJumps > 0 || (cData.canWallJump && collisions.hHit)) {
                 // air jump
                 if (!collisions.onGround && !OnLadder) {
                     extraJumps--;
@@ -358,6 +362,7 @@ public class CharacterController2D : ObjectController2D {
                 }
                 float height = cData.maxJumpHeight;
                 if (OnLadder) {
+                    print("doing ladder jump");
                     Vector2 origin = myCollider.bounds.center + Vector3.up * myCollider.bounds.extents.y;
                     Collider2D hit = Physics2D.OverlapCircle(origin, 0, collisionMask);
                     if (hit) {

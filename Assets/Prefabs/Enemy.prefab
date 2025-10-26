@@ -74,7 +74,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.20358855}
+  m_Offset: {x: -0.021342754, y: 0.4170189}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -84,7 +84,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.40640527, y: 0.4072736}
+  m_Size: {x: 0.71740246, y: 0.72437286}
   m_EdgeRadius: 0
 --- !u!50 &3558988119586927563
 Rigidbody2D:
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17840029936879671}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 143e290df8864e94d94e55b4ab599a5a, type: 3}
   m_Name: 
@@ -233,13 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb27a440f264174b8d8593148ed12ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  attackInterval: 4
+  attackIntervalMinMax: {x: 3, y: 5}
   bullet: {fileID: 8706223506863216679, guid: 1cebea855007afc439a5058072a1d668, type: 3}
-  bulletSpawnOffset: 1
+  bulletSpawnOffset: 0.2
   bulleSpeed: 1
   bulletLifeTime: 3
-  maxHp: 3
-  maxShootRange: 50
+  maxHp: 2
+  maxShootRange: 15
 --- !u!1 &4833749605407166501
 GameObject:
   m_ObjectHideFlags: 0

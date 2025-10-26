@@ -13,11 +13,13 @@ public class Player2Controller : MonoBehaviour {
     public float softRespawnDuration = 0.5f;
     public InputMaster controls;
     public float attackCooldown = 1.0f;
+    public SpriteRenderer _renderer;
 
     bool attacking = false;
     bool attackOnCooldown = false;
 
     // Other components
+    private P2Attack attackManager;
     private CharacterController2D character;
     private CameraController cameraController;
     private CheckpointSystem checkpoint;
@@ -31,6 +33,7 @@ public class Player2Controller : MonoBehaviour {
         character = GetComponent<CharacterController2D>();
         checkpoint = GetComponent<CheckpointSystem>();
         interact = GetComponent<InteractSystem>();
+        attackManager = GetComponentInChildren<P2Attack>();
         cameraController = FindFirstObjectByType<CameraController>();
         if (!cameraController) {
             Debug.LogError("The scene is missing a camera controller! The player script needs it to work properly!");
@@ -43,7 +46,7 @@ public class Player2Controller : MonoBehaviour {
         controls.Player2.Dash.started += Dash;
         controls.Player2.Interact.started += Interact;
         controls.Player2.AttackA.started += Attack;
-        controls.Player2.AttackA.canceled += Attack;
+        controls.Player2.AttackA.canceled += AttackCancelled;
     }
 
     /// <summary>
@@ -82,9 +85,17 @@ public class Player2Controller : MonoBehaviour {
 
     
     private void Attack(InputAction.CallbackContext context) {
-        if (!character.Immobile)
+        if (interact && interact.PickedUpObject)
         {
-            StartCoroutine(AttackRoutine());
+            interact.Throw();
+        }
+        else
+        {
+            attacking = true;
+            if (!character.Immobile)
+            {
+                StartCoroutine(AttackRoutine());
+            }
         }
     }
     void AttackCancelled(InputAction.CallbackContext context)
@@ -104,7 +115,9 @@ public class Player2Controller : MonoBehaviour {
     }
     void SwordAttack()
     {
-        print("swof");
+
+        //GameManager.Instance.ParticleSpawner.SpawnSlash(transform.position + Vector3.up, axis);
+        attackManager.StartAttack(character.FacingRight);
         attackOnCooldown = true;
         StartCoroutine(AttackCooldown());
     }
@@ -119,6 +132,7 @@ public class Player2Controller : MonoBehaviour {
     /// Respawns the player at the last soft checkpoint while keeping their current stats
     /// </summary>
     public void SoftRespawn() {
+        _renderer.flipY = true;
         character.Immobile = true;
         Invoke("StartSoftRespawn", softRespawnDelay);
     }
@@ -135,6 +149,7 @@ public class Player2Controller : MonoBehaviour {
     /// Ends the soft respwan after the duration ended, repositions the player and fades in the screen
     /// </summary>
     private void EndSoftRespawn() {
+        _renderer.flipY = false;
         checkpoint.ReturnToSoftCheckpoint();
         cameraController.FadeIn();
         character.Immobile = false;

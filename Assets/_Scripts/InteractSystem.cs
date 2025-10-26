@@ -75,6 +75,11 @@ public class InteractSystem : MonoBehaviour {
         }
     }
 
+    public void ReturnInteractIcon()
+    {
+        inputIcon.transform.parent = transform;
+    }
+
     /// <summary>
     /// If there's an interactable object within the range, interacts with the closest one
     /// </summary>

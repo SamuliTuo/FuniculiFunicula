@@ -17,6 +17,7 @@ public class FunicularController : MonoBehaviour
         hp = maxHp;
     }
 
+    // HP
     public void GotHit(float damage)
     {
         hp -= damage;
@@ -25,9 +26,7 @@ public class FunicularController : MonoBehaviour
         {
             GameManager.Instance.GameOver();
         }
-        
     }
-
     void SetHP()
     {
         hpBar.fillAmount = Mathf.Max(0, hp) / maxHp;

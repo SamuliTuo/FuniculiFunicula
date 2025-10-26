@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour {
     public float softRespawnDelay = 0.5f;
     public float softRespawnDuration = 0.5f;
     public InputMaster controls;
-    public SpriteRenderer renderer;
+    public SpriteRenderer _renderer;
+    public float bulletOffsetFromPlayerWhenShooting = 0.3f;
 
     public GameObject bullet;
     public float shootInterval = 3.0f;
@@ -84,10 +85,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Attack(InputAction.CallbackContext context) {
-        shooting = true;
-        if (!character.Immobile)
+        if (interact && interact.PickedUpObject)
         {
-            StartCoroutine(ShootRoutine());
+            interact.Throw();
+        }
+        else
+        {
+            shooting = true;
+            if (!character.Immobile)
+            {
+                StartCoroutine(ShootRoutine());
+            }
         }
     }
     void AttackCanceled(InputAction.CallbackContext context)
@@ -110,8 +118,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 shootDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - (transform.position + Vector3.up * 0.5f);
         shootDir.z = 0;
         shootDir = shootDir.normalized;
-        print("shootdir" + shootDir.magnitude);
-        var clone = Instantiate(bullet, (transform.position + Vector3.up * 0.5f) + shootDir, Quaternion.identity).GetComponent<BulletController>();
+        var clone = Instantiate(bullet, (transform.position + Vector3.up * 0.5f) + shootDir * bulletOffsetFromPlayerWhenShooting, Quaternion.identity).GetComponent<BulletController>();
         clone.Init(shootDir, false);
         shootOnCooldown = true;
         StartCoroutine(ShootCooldown());
@@ -126,7 +133,7 @@ public class PlayerController : MonoBehaviour {
     /// Respawns the player at the last soft checkpoint while keeping their current stats
     /// </summary>
     public void SoftRespawn() {
-        renderer.flipY = true;
+        _renderer.flipY = true;
         character.Immobile = true;
         Invoke("StartSoftRespawn", softRespawnDelay);
     }
@@ -144,7 +151,7 @@ public class PlayerController : MonoBehaviour {
     /// Ends the soft respwan after the duration ended, repositions the player and fades in the screen
     /// </summary>
     private void EndSoftRespawn() {
-        renderer.flipY = false;
+        _renderer.flipY = false;
         checkpoint.ReturnToSoftCheckpoint();
         cameraController.FadeIn();  
         character.Immobile = false;
