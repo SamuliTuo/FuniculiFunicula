@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
     public void GotHit(float damage)
     {
         hp -= damage;
+        GameManager.Instance.ParticleSpawner.SpawnBulletHit(transform.position);
         if (hp <= 0)
         {
             GameManager.Instance.AudioManager.PlayClip("enemy_ded");
