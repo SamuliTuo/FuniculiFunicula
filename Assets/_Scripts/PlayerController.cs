@@ -107,8 +107,11 @@ public class PlayerController : MonoBehaviour {
     }
     void Shoot()
     {
-        Vector3 shootDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        var clone = Instantiate(bullet, transform.position + shootDir, Quaternion.identity).GetComponent<BulletController>();
+        Vector3 shootDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - (transform.position + Vector3.up * 0.5f);
+        shootDir.z = 0;
+        shootDir = shootDir.normalized;
+        print("shootdir" + shootDir.magnitude);
+        var clone = Instantiate(bullet, (transform.position + Vector3.up * 0.5f) + shootDir, Quaternion.identity).GetComponent<BulletController>();
         clone.Init(shootDir, false);
         shootOnCooldown = true;
         StartCoroutine(ShootCooldown());
