@@ -126,6 +126,7 @@ public class PlatformController : MonoBehaviour {
     /// </summary>
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other) {
+        print("atach " + other.name);
         AttachObject(other);
     }
 
