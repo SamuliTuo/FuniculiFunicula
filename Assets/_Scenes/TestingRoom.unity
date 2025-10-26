@@ -8091,6 +8091,11 @@ PrefabInstance:
       propertyPath: visual
       value: 
       objectReference: {fileID: 301220707}
+    - target: {fileID: 7018911988841287167, guid: 4fb49a1922deb8249bfdbba50d98dbf1,
+        type: 3}
+      propertyPath: stepInterval
+      value: 0.22
+      objectReference: {fileID: 0}
     - target: {fileID: 7662770109407060711, guid: 4fb49a1922deb8249bfdbba50d98dbf1,
         type: 3}
       propertyPath: m_IsActive
@@ -22647,52 +22652,64 @@ MonoBehaviour:
     clip:
     - {fileID: 8300000, guid: 59c12ceb890fd314992f9bbfa21e5354, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player1_attack
     clip:
     - {fileID: 8300000, guid: b93fec0f125fe624cbb9fba64d2f80d2, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player1_ded
     clip:
     - {fileID: 8300000, guid: b221f7e99d5bdfc4a893b158b9304f2c, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player1_step
     clip:
     - {fileID: 8300000, guid: d1c867b0fb9b4064480634b5546a4eea, type: 3}
     - {fileID: 8300000, guid: 4ec23eff12041e844a2d3c7eb132dab9, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player1_liftObj
     clip:
     - {fileID: 8300000, guid: e4490471fd3c4394a89d24c312918724, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player2_jump
     clip:
     - {fileID: 8300000, guid: f4223faacbb6fde468b54563af861b11, type: 3}
     - {fileID: 8300000, guid: 6316e29ac072c5d41b5bcbf51318e3ee, type: 3}
     randomize: 1
+    volumeTweak: 0
   - clipName: player1_throw
     clip:
     - {fileID: 8300000, guid: bac572ede667a384f8bbb15425bb92ad, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player2_attack
     clip:
     - {fileID: 8300000, guid: 5d7719cd0925a144d8698695bc57be78, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player2_ded
     clip: []
     randomize: 0
+    volumeTweak: 0
   - clipName: player2_step
     clip:
     - {fileID: 8300000, guid: 54fd9750b62b0f849a50d364c75d8f85, type: 3}
     - {fileID: 8300000, guid: 01e6a86a717cdae46aab19e11af5633e, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: player2_liftObj
     clip:
     - {fileID: 8300000, guid: e4a4e5fac003be24689ff8b2f4778b7a, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: enemy_shoot
     clip:
     - {fileID: 8300000, guid: 70b96264e7834a64783c9bf4b4a4a911, type: 3}
     randomize: 0
+    volumeTweak: 0
   - clipName: enemy_ded
     clip:
     - {fileID: 8300000, guid: a4e511094929778418f1ae02d7f049b5, type: 3}
@@ -22700,10 +22717,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2f77a73474863544f82e2f18552f990c, type: 3}
     - {fileID: 8300000, guid: 205f56e40f10f674d81561e9f099f5fc, type: 3}
     randomize: 1
+    volumeTweak: 0
   - clipName: player2_throw
     clip:
     - {fileID: 8300000, guid: 978b23eedde4fa6498490032b9008f95, type: 3}
     randomize: 1
+    volumeTweak: 0
   freeSources:
   - {fileID: 1930597064}
   - {fileID: 956136942}
@@ -24229,6 +24248,11 @@ PrefabInstance:
       propertyPath: visual
       value: 
       objectReference: {fileID: 1372819450}
+    - target: {fileID: 7018911988841287167, guid: 4fb49a1922deb8249bfdbba50d98dbf1,
+        type: 3}
+      propertyPath: stepInterval
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7662770109407060711, guid: 4fb49a1922deb8249bfdbba50d98dbf1,
         type: 3}
       propertyPath: m_IsActive

@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour {
     public InputMaster controls;
     public SpriteRenderer _renderer;
     public float bulletOffsetFromPlayerWhenShooting = 0.3f;
-
     public GameObject bullet;
     public float shootInterval = 3.0f;
+
     private bool shootOnCooldown = false;
     private bool shooting = false;
     private bool dead = false;
@@ -56,7 +56,9 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         character.Walk(axis.x);
         character.ClimbLadder(axis.y);
+        character.StepSounder(axis.x, "player1_step");
     }
+
 
     private void Move(Vector2 _axis) {
         axis = _axis;

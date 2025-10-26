@@ -297,6 +297,9 @@ public class CharacterController2D : ObjectController2D {
         animator.SetBool(ANIMATION_INVULNERABLE, Invulnerable);
     }
 
+    public float stepInterval = 0.5f;
+    float stepTimer = 0;
+
     /// <summary>
     /// Tries to move the character horizontally based on it's current movespeed and input pressure 
     /// while checking for movement impairments
@@ -324,7 +327,7 @@ public class CharacterController2D : ObjectController2D {
                 dec = cData.decelerationTime;
             }
             if (acc > 0) {
-                if(externalForce.x != 0 && Mathf.Sign(externalForce.x) != Mathf.Sign(direction)) {
+                if (externalForce.x != 0 && Mathf.Sign(externalForce.x) != Mathf.Sign(direction)) {
                     externalForce.x += direction * (1 / acc) * cData.maxSpeed * Time.fixedDeltaTime;
                 } else {
                     if (Mathf.Abs(speed.x) < cData.maxSpeed) {
@@ -347,6 +350,23 @@ public class CharacterController2D : ObjectController2D {
         }
     }
 
+    public void StepSounder(float axisX, string audioClipName)
+    {
+        if (Mathf.Abs(axisX) < 0.1f || !collisions.onGround)
+        {
+            return;
+        }
+
+        if (stepTimer < stepInterval)
+        {
+            stepTimer += Time.deltaTime;
+        }
+        else
+        {
+            GameManager.Instance.AudioManager.PlayClip(audioClipName);
+            stepTimer = 0;
+        }
+    }
     
 
     /// <summary>

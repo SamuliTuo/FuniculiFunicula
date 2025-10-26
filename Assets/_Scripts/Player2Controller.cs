@@ -53,9 +53,11 @@ public class Player2Controller : MonoBehaviour {
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void FixedUpdate() {
-        character.Walk(axis.x);
+        character.Walk(axis.x); ;
         character.ClimbLadder(axis.y);
+        character.StepSounder(axis.x, "player2_step");
     }
+
 
     private void Move(Vector2 _axis) {
         axis = _axis;

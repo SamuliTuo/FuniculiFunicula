@@ -29,8 +29,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
         source.clip = data.clip[Random.Range(0, data.clip.Count)];
+        source.volume = 1 + data.volumeTweak;
         source.Play();
-        ReturnSourceToPoolAfterDelay(10, source);
+        StartCoroutine(ReturnSourceToPoolAfterDelay(4, source));
     }
 
     AudioSource GetFreeSource()
@@ -63,10 +64,12 @@ public class SoundClip
     public string clipName;
     public List<AudioClip> clip;
     public bool randomize;
-    public SoundClip(string clipName, List<AudioClip> clip, bool randomize)
+    public float volumeTweak;
+    public SoundClip(string clipName, List<AudioClip> clip, bool randomize, float volumeTweak)
     {
         this.clipName = clipName;
         this.clip = clip;
         this.randomize = randomize;
+        this.volumeTweak = volumeTweak;
     }
 }
