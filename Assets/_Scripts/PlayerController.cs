@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour {
     public void Attack(InputAction.CallbackContext context) {
         if (interact && interact.PickedUpObject)
         {
+            GameManager.Instance.AudioManager.PlayClip("player1_throw");
             interact.Throw();
         }
         else

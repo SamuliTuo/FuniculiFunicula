@@ -14,21 +14,21 @@ public class AudioManager : MonoBehaviour
     public void PlayClip(string clipName)
     {
         var source = GetFreeSource();
-        AudioClip clip = null;
+        SoundClip data = null;
         for (int i = 0; i < SoundClips.Count; i++)
         {
             if (SoundClips[i].clipName == clipName)
             {
-                //clip = SoundClips[i].clip;
+                data = SoundClips[i];
                 break;
             }
         }
-        if (clip == null)
+        if (data == null)
         {
-            print("Couldn't find clip: " + clipName);
+            print("Couldn't find audiodata for : " + clipName);
             return;
         }
-        source.clip = clip;
+        source.clip = data.clip[Random.Range(0, data.clip.Count)];
         source.Play();
         ReturnSourceToPoolAfterDelay(10, source);
     }
