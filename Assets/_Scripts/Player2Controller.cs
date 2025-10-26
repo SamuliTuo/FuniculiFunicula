@@ -117,7 +117,7 @@ public class Player2Controller : MonoBehaviour {
     {
 
         //GameManager.Instance.ParticleSpawner.SpawnSlash(transform.position + Vector3.up, axis);
-        attackManager.StartAttack(character.FacingRight);
+        attackManager.StartAttack(axis, character.FacingRight);
         attackOnCooldown = true;
         StartCoroutine(AttackCooldown());
     }
