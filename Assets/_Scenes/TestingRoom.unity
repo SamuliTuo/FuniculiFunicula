@@ -17746,6 +17746,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd9a1c113dd8f54c99b2f9d90f64510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  SoundClips:
+  - clipName: player_jump
+    clip: {fileID: 8300000, guid: 636de640ba3eb5a4eb13120f2821580f, type: 3}
   freeSources:
   - {fileID: 1930597064}
   - {fileID: 956136942}

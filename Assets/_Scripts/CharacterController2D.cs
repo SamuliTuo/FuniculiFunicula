@@ -396,9 +396,10 @@ public class CharacterController2D : ObjectController2D {
                     speed.x = cData.maxSpeed * collisions.groundDirection;
                 }
                 ignorePlatformsTime = 0;
-                if (soundManager) {
-                    soundManager.PlayJumpSound();
-                }
+                GameManager.Instance.AudioManager.PlayClip("player_jump");
+                //if (soundManager) {
+                //    soundManager.PlayJumpSound();
+                //}
             }
         }
     }
