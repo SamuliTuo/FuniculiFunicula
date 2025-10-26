@@ -22642,8 +22642,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   SoundClips:
-  - clipName: player_jump
-    clip: {fileID: 8300000, guid: 636de640ba3eb5a4eb13120f2821580f, type: 3}
+  - clipName: player1_jump
+    clip: {fileID: 0}
+  - clipName: player1_attack
+    clip: {fileID: 0}
+  - clipName: player1_ded
+    clip: {fileID: 0}
+  - clipName: player1_step
+    clip: {fileID: 0}
+  - clipName: player1_liftObj
+    clip: {fileID: 0}
+  - clipName: player2_jump
+    clip: {fileID: 0}
+  - clipName: player2_attack
+    clip: {fileID: 0}
+  - clipName: player2_ded
+    clip: {fileID: 0}
+  - clipName: player2_step
+    clip: {fileID: 0}
+  - clipName: player2_liftObj
+    clip: {fileID: 0}
+  - clipName: enemy_shoot
+    clip: {fileID: 0}
+  - clipName: enemy_ded
+    clip: {fileID: 0}
+  - clipName: enemy_shoot
+    clip: {fileID: 0}
   freeSources:
   - {fileID: 1930597064}
   - {fileID: 956136942}
