@@ -489,7 +489,6 @@ public class CharacterController2D : ObjectController2D {
     /// The character will briefly ignore platforms so it can jump down through them
     /// </summary>
     private void IgnorePlatforms() {
-
         GameManager.Instance.ParticleSpawner.SpawnJumpCloud(transform.position);
         ignorePlatformsTime = owPlatformDelay;
     }

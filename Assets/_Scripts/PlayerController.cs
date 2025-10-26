@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour {
     }
     void Shoot()
     {
+        GameManager.Instance.ParticleSpawner.SpawnMuzzelFlash(transform.position);
         Vector3 shootDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - (transform.position + Vector3.up * 0.5f);
         shootDir.z = 0;
         shootDir = shootDir.normalized;
