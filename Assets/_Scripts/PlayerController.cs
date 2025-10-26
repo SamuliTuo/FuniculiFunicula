@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Jump(InputAction.CallbackContext context) {
-        GameManager.Instance.ParticleSpawner.SpawnJumpCloud(transform.position);
         if (axis.y < 0) {
             character.JumpDown();
         } else {
