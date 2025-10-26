@@ -22704,6 +22704,13 @@ MonoBehaviour:
     clip:
     - {fileID: 8300000, guid: 978b23eedde4fa6498490032b9008f95, type: 3}
     randomize: 1
+  - clipName: funiculi_auts
+    clip:
+    - {fileID: 8300000, guid: 268ccdf2fca9b1e439c61080c27a7325, type: 3}
+    - {fileID: 8300000, guid: 16fb3de9c23a0da49a059143b38e248f, type: 3}
+    - {fileID: 8300000, guid: 6eaf1e05572307541b8df71015f83aa1, type: 3}
+    - {fileID: 8300000, guid: c92d9b38955feba41a48e7fc0654ca2d, type: 3}
+    randomize: 1
   freeSources:
   - {fileID: 1930597064}
   - {fileID: 956136942}
@@ -23510,7 +23517,7 @@ PrefabInstance:
     - target: {fileID: 6849151202310540923, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.889332
+      value: -21.938507
       objectReference: {fileID: 0}
     - target: {fileID: 6849151202310540923, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
@@ -23530,7 +23537,7 @@ PrefabInstance:
     - target: {fileID: 6849151202356881847, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.889332
+      value: -21.938507
       objectReference: {fileID: 0}
     - target: {fileID: 6849151202356881847, guid: 72f469c2f154bcd40a3932572a8a1c9e,
         type: 3}
