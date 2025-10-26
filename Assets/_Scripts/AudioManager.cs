@@ -62,9 +62,11 @@ public class SoundClip
 {
     public string clipName;
     public List<AudioClip> clip;
-    public SoundClip(string clipName, List<AudioClip> clip)
+    public bool randomize;
+    public SoundClip(string clipName, List<AudioClip> clip, bool randomize)
     {
         this.clipName = clipName;
         this.clip = clip;
+        this.randomize = randomize;
     }
 }
